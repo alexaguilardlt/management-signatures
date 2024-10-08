@@ -6,6 +6,13 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: 'tests/setup.ts', // Si tienes un archivo setup
+    setupFiles: 'tests/setup.ts',
+    coverage: {
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
+      enabled: true,
+    },
+    include: ['tests/**/*.test.tsx'],
+    exclude: ['tests/setup.ts'],
   },
 })
